@@ -88,125 +88,110 @@ class Program
 }
 
 2) 
+
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-public class Person
+namespace наследование
 {
-    public string Name { get; set; }
-    public int Age { get; set; }
-
-    public Person(string name, int age)
+    class Person
     {
-        Name = name;
-        Age = age;
+        public string Name { get; set; }
+        public int Age { get; set; }
+
+        public Person(string name, int age)
+        {
+            Name = name;
+            Age = age;
+        }
+        public void SayHello()
+        {
+            Console.WriteLine($"Привет! Меня зовут {Name}.");
+        }
+
+
+        public void ShowInfo()
+        {
+            Console.WriteLine($"Имя: {Name}, Возраст: {Age}");
+        }
+
+
     }
 
-    public void ShowInfo()
+    class Student : Person
     {
-        Console.WriteLine($"Имя: {Name}, Возраст: {Age}");
+        public string University { get; set; }
+
+        public Student(string name, int age, string university)
+            : base(name, age)
+        {
+            University = university;
+        }
+
+        public void Study()
+        {
+            Console.WriteLine($"{Name} учится в {University}.");
+        }
+
+     }
+
+    class Teacher: Person
+    {
+        string Subject { get; set; }
+        public Teacher (string name, int age, string subject)
+            :base (name, age)
+        {
+            Subject = subject;
+        }
+        public void Teach()
+        {
+            Console.WriteLine($" {Name} учитель по предмету {Subject}");
+
+        }
+
     }
 
-   
-    public void SayHello()
+    class Doctor:Person
     {
-        Console.WriteLine($"Привет! Меня зовут {Name}.");
-    }
-}
+        public string Specialization {  get; set; }
 
+        public Doctor(string name, int age, string specialization)
+            : base(name, age)
+        {
+            Specialization = specialization;
+        }
+        public void Treat()
+        {
+            Console.WriteLine($"{Name} доктор по специальности {Specialization}");
+         
+        }
 
-public class Student : Person
-{
-    public string University { get; set; }
-
-    public Student(string name, int age, string university)
-        : base(name, age)  
-    {
-        University = university;
-    }
-
-    public void Study()
-    {
-        Console.WriteLine($"{Name} учится в {University}.");
-    }
-}
-
-public class Teacher : Person
-{
-    public string Subject { get; set; }
-
-    public Teacher(string name, int age, string subject)
-        : base(name, age)  
-    {
-        Subject = subject;
     }
 
-    public void Teach()
+    internal class Program
     {
-        Console.WriteLine($"{Name} преподаёт {Subject}.");
-    }
-}
+        static void Main(string[] args)
+        {
+            Student student = new Student("Алиса", 20, "IT-TOP");
+            Teacher teacher = new Teacher("Борис", 45, "Математика");
+            Doctor doctor = new Doctor("Виктор", 50, "Кардиология");
 
-public class Doctor : Person
-{
-    public string Specialization { get; set; }
+            student.ShowInfo();
+            student.SayHello();
+            student.Study();
 
-    public Doctor(string name, int age, string specialization)
-        : base(name, age)  
-    {
-        Specialization = specialization;
-    }
+            teacher.ShowInfo();
+            teacher.SayHello();
+            teacher.Teach();
 
-    public void Treat()
-    {
-        Console.WriteLine($"{Name} лечит пациентов по специализации «{Specialization}».");
-    }
-}
+            doctor.ShowInfo();
+            doctor.SayHello();
+            doctor.Treat();
 
-
-public class Engineer : Person
-{
-    public string Company { get; set; }
-    public string Specialty { get; set; }
-
-    public Engineer(string name, int age, string company, string specialty)
-        : base(name, age)
-    {
-        Company = company;
-        Specialty = specialty;
-    }
-
-    public void Design()
-    {
-        Console.WriteLine($"{Name} проектирует решения в области {Specialty} в компании {Company}.");
-    }
-}
-
-
-class Program
-{
-    static void Main()
-    {
-
-        Student student = new Student("Алиса", 20, "IT-TOP");
-        Teacher teacher = new Teacher("Борис", 45, "Математика");
-        Doctor doctor = new Doctor("Виктор", 50, "Кардиология");
-        Engineer engineer = new Engineer("Дмитрий", 35, "Ростех", "Машиностроение");
-
-        student.ShowInfo();
-        student.SayHello();  
-        student.Study();
-
-        teacher.ShowInfo();
-        teacher.SayHello();  
-        teacher.Teach();
-
-        doctor.ShowInfo();
-        doctor.SayHello();  
-        doctor.Treat();
-
-        engineer.ShowInfo();
-        engineer.SayHello();  
-        engineer.Design();
+        }
     }
 }
 
