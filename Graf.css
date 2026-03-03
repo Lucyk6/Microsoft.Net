@@ -1,39 +1,46 @@
-static void Main(string[] args)
+using System.Collections.Generic;
 
-var graph = new Dictionary<string, List<string>>
+static void Main(string[] args) {
 
-"A", new List<string>("5", "C"}},
+    var graph = new Dictionary<string, List<string>> {
 
-["B", new List<string-["D
+        { "A", new List<string> {"5", "C"} },
 
-["C", new List<string>(6"},
+        { "B", new List<string> {"D","E","F" } },
 
-{"D", new List<string> "1"}},
+        { "C", new List<string> {"G","H" } },
 
-(E, new Listestriep"}},
+        { "D", new List<string> {"I" } } ,
 
-(new List stringp
+       { "E", new List<string> {"J" } } ,
 
-("C", now List<string>[L]},
+       { "F", new List<string> {"K" } } ,
 
-("H", new List<string()),
+       { "G", new List<string> {"L" } } ,
 
-(T", ses List strip(O),
+       { "H", new List<string> {} } ,
 
-(new List<striop()),
+       { "I", new List<string> {} } ,
 
-(", new Listsstring())
+       { "J", new List<string> {} } ,
 
-("L", new List<string>()),
+       { "K", new List<string> {} } ,
 
-Fereach (var iten in graph)
+      { "L", new List<string> {} } ,
 
-Console.WriteLine("[item. Key) (string. Join(",", item.Value))");
+     
+    };
 
-List<string> list = BFS(graph, "A", "F"];
+    foreach (var item in graph){
 
-Console.WriteLine(string. Join(", list));
+        Console.WriteLine("[item. Key) (string. Join(", ", item.Value))");
+     }
 
-OFS(graph, "A", new HashSet<string>(), new List<string>(), "L");
+    List<string> list = BFS(graph, "A", "F");
 
-Console.Readley();
+    Console.WriteLine(string.Join("", list));
+
+    DFS (graph, "A", new HashSet<string>(), new List<string>(), "L");
+
+    Console.Readley();
+}
