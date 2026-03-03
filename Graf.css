@@ -1,0 +1,39 @@
+static void Main(string[] args)
+
+var graph = new Dictionary<string, List<string>>
+
+"A", new List<string>("5", "C"}},
+
+["B", new List<string-["D
+
+["C", new List<string>(6"},
+
+{"D", new List<string> "1"}},
+
+(E, new Listestriep"}},
+
+(new List stringp
+
+("C", now List<string>[L]},
+
+("H", new List<string()),
+
+(T", ses List strip(O),
+
+(new List<striop()),
+
+(", new Listsstring())
+
+("L", new List<string>()),
+
+Fereach (var iten in graph)
+
+Console.WriteLine("[item. Key) (string. Join(",", item.Value))");
+
+List<string> list = BFS(graph, "A", "F"];
+
+Console.WriteLine(string. Join(", list));
+
+OFS(graph, "A", new HashSet<string>(), new List<string>(), "L");
+
+Console.Readley();
